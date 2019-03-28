@@ -8,6 +8,9 @@
 # Version 2.8
 # Last Updated Jan 13, 2017
 
+# Updated 28 March 2019
+# By David Wyman
+
 # REQUIREMENTS
 # 1) Assumes you have a UniFi Controller installed and running on your system.
 # 2) Assumes you already have a valid 2048-bit private key, signed certificate, and certificate authority
@@ -21,23 +24,31 @@
 # script. If anything goes wrong, you can restore from your backup, restart the UniFi Controller service,
 # and be back online immediately.
 
+# Check that URL has been specified at commandline.
+if [ ! "$1" ]; then
+	echo "No UniFi URL specified."
+	echo "e.g. unifi_ssl_import.sh unifi.example.com"
+exit 1
+fi
+
 # CONFIGURATION OPTIONS
-UNIFI_HOSTNAME=hostname.example.com
+#UNIFI_HOSTNAME=hostname.example.com
+UNIFI_HOSTNAME=$1
 UNIFI_SERVICE=unifi
 
 # Uncomment following three lines for Fedora/RedHat/CentOS
-UNIFI_DIR=/opt/UniFi
-JAVA_DIR=${UNIFI_DIR}
-KEYSTORE=${UNIFI_DIR}/data/keystore
+#UNIFI_DIR=/opt/UniFi
+#JAVA_DIR=${UNIFI_DIR}
+#KEYSTORE=${UNIFI_DIR}/data/keystore
 
 # Uncomment following three lines for Debian/Ubuntu
-#UNIFI_DIR=/var/lib/unifi
-#JAVA_DIR=/usr/lib/unifi
-#KEYSTORE=${UNIFI_DIR}/keystore
+UNIFI_DIR=/var/lib/unifi
+JAVA_DIR=/usr/lib/unifi
+KEYSTORE=${UNIFI_DIR}/keystore
 
 # FOR LET'S ENCRYPT SSL CERTIFICATES ONLY
 # Generate your Let's Encrtypt key & cert with certbot before running this script
-LE_MODE=no
+LE_MODE=yes
 LE_LIVE_DIR=/etc/letsencrypt/live
 
 # THE FOLLOWING OPTIONS NOT REQUIRED IF LE_MODE IS ENABLED

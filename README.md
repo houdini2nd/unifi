@@ -1,6 +1,6 @@
 # Install UniFi 
 
-###install_unifi_controller.sh
+### install_unifi_controller.sh
 Install the UniFi controller software on Linux (Ubuntu/Debian).
 
 # UniFi Linux Utils

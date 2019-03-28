@@ -1,3 +1,6 @@
+# install_unifi_controller.sh
+Install the UniFi controller software on Linux (Ubuntu/Debian).
+
 # UniFi Linux Utils
 A collection of helpful Linux / Unix scripts and utilities for admins of Ubiquiti (UBNT) UniFi products.
 

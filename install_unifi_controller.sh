@@ -9,7 +9,7 @@ clear
 #Check that URL has been specified at commandline.
 if [ ! "$1" ]; then
 	echo "No UniFi URL specified."
-	echo "e.g. install.sh unifi.example.com"
+	echo "e.g. install_unifi_controller.sh unifi.example.com"
 exit 1
 fi
 
